@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<textarea name="answer" id="answer" cols="160" rows="10"></textarea>    
+<button id="generate">Generate</button>
+<p id="final-answer"></p>
+</body>
+<script>
+    const btn = document.getElementById("generate");
+    const btn2 = document.getElementById("generate");
+    const para = document.querySelector("p")
+    const text = document.querySelector("textarea")
+   
+    const spans = [];
+    const letters = [];
+    let colors = ["Cg", "Cg2", "Cg3", "Cg4", "Cg5"];
+
+    btn.addEventListener("click", ()=>{
+            // para.innerHTML = `
+            // <div>
+            // ${text.value}
+            // </div>`;
+            
+            let textArea = text.value.split(" ")
+            
+            for (let i = 0; i < text.value.length; i++) {
+                let color = colors[Math.floor(Math.random()*colors.length)] 
+                let span = "<span style='font-family: " + color + ";'>" + text.value[i] + "</span>"
+
+                letters.push(span)
+            }
+
+            // for (let i = 0; i < textArea.length; i++) {
+            //     var color = colors[Math.floor(Math.random()*colors.length)] 
+            //     var span = "<span style='font-family: " + color + ";'>" + textArea[i] + "</span>"
+
+            //     spans.push(span);
+            // }
+
+            letters.forEach(element => {
+                if(element != "")
+                para.innerHTML = letters.join("");
+                else
+                para.innerHTML = letters.join(" ");
+            });
+
+            
+            console.log(letters);
+        })
+
+</script>
+</html>
